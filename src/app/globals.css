@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Cores Hardcoded para garantir que funcionem */
+  --bg-dark: #142332;
+  --text-main: #ebebeb;
+  --cyan: #00cdcd;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+}
+
+/* --- BLOQUEIO DE CORES PADRÃO (Adeus Roxo) --- */
+a, a:visited, a:hover, a:active {
+  color: inherit; /* Força o link a ter a cor do texto pai */
+  text-decoration: none;
+}
+
+/* Forçar links específicos a serem brancos ou ciano */
+.text-link {
+    color: var(--text-main);
+    transition: color 0.3s ease;
+}
+.text-link:hover {
+    color: var(--cyan);
+}
+
+/* --- TIPOGRAFIA ALUMNI SANS (O Segredo da Elegância) --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-alumni), 'Impact', sans-serif; /* Fallback seguro */
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05em; /* Leve espaçamento para ficar chique */
+  line-height: 0.9;
+  color: white; /* Força título branco */
+}
+
+/* --- COMPONENTES VISUAIS --- */
+.btn-cyan {
+    background-color: var(--cyan);
+    color: var(--bg-dark);
+    font-family: var(--font-alumni), sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.8rem 2.5rem;
+    font-size: 1.5rem; /* Botão grande */
+    border-radius: 2px;
+    transition: all 0.3s;
+    box-shadow: 0 0 20px rgba(0, 205, 205, 0.2);
+}
+.btn-cyan:hover {
+    background-color: white;
+    box-shadow: 0 0 40px rgba(0, 205, 205, 0.5);
+}
+
+/* Barra de Rolagem Personalizada */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #0f1a26; }
+::-webkit-scrollbar-thumb { background: #2a4055; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--cyan); }
+
+/* =========================================================
+   NORMALIZAÇÃO VISUAL – MAIS ALTO ESCALADA
+   (remove “roxo”, azul estranho, autofill feio etc.)
+   ========================================================= */
+
+/* Links nunca mudam de cor sozinhos */
+a,
+a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Foco acessível e controlado (em vez do azul/roxo do navegador) */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid #00CDCD; /* cyan da marca */
+  outline-offset: 2px;
+}
+
+/* Seleção de texto (quando arrasta o mouse) */
+::selection {
+  background-color: rgba(0, 205, 205, 0.25);
+  color: #ffffff;
+}
+
+/* Autofill do Chrome (aquele fundo amarelo horroroso) */
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-text-fill-color: #EBEBEB;
+  -webkit-box-shadow: 0 0 0px 1000px #142332 inset;
+  transition: background-color 9999s ease-in-out 0s;
+}
